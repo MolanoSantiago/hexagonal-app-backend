@@ -23,7 +23,7 @@ abstract class Domain
 
     /**
      * @param string|null $exception
-     * @return never
+     * @return void
      */
-    protected abstract function isException(?string $exception): never;
+    protected abstract function isException(?string $exception): void;
 }

@@ -11,15 +11,9 @@ final class DependencyServiceProvider extends ServiceProvider
         parent::__construct($app);
         $this->setDependency([
             [
-                'useCase' => [
-                    \Src\Management\Login\Application\Login\LoginAuthUseCase::class
-                ],
-                'contract' => [
-                    \Src\Management\Login\Domain\Contracts\LoginRepositoryContract::class
-                ],
-                'repository' => [
-                    \Src\Management\Login\Infrastructure\Repositories\Eloquent\LoginRepository::class
-                ]
+                'useCase' => \Src\Management\Login\Application\Login\LoginAuthUseCase::class,
+                'contract' => \Src\Management\Login\Domain\Contracts\LoginRepositoryContract::class,
+                'repository' => \Src\Management\Login\Infrastructure\Repositories\Eloquent\LoginRepository::class
             ]
         ]);
     }
