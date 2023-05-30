@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use Src\Management\Login\Infrastructure\Services\RouteServiceProvider;
 
 return [
 
@@ -168,6 +169,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // Hexagonal Zone 
+        Src\Management\Login\Infrastructure\Services\RouteServiceProvider::class,
+        Src\Management\Login\Infrastructure\Services\DependencyServiceProvider::class
     ])->toArray(),
 
     /*

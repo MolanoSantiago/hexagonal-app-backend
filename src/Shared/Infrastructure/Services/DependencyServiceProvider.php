@@ -9,7 +9,7 @@ class DependencyServiceProvider extends Service
 
     private array $dependencies;
 
-    public function setDependecy(array $dependencies): void
+    public function setDependency(array $dependencies): void
     {
         $this->dependencies = $dependencies;
     }

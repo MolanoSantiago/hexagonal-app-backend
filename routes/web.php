@@ -15,5 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-    // throw new Src\Shared\Domain\Exceptions\RequestFailedException('request failed', 401);
 });

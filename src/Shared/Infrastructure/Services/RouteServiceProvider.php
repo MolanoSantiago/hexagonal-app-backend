@@ -5,7 +5,7 @@ namespace Src\Shared\Infrastructure\Services;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
-abstract class RouteServiceProvider extends ServiceProvider
+class RouteServiceProvider extends ServiceProvider
 {
 
     private mixed $prefix;
@@ -14,7 +14,7 @@ abstract class RouteServiceProvider extends ServiceProvider
     private ?bool $except;
 
     
-    public function setDependecy(mixed $prefix,  mixed $namespace,  mixed $group,  ?bool $except = null): void
+    public function setDependency(mixed $prefix,  mixed $namespace,  mixed $group,  ?bool $except = null): void
     {
         $this->prefix = $prefix;
         $this->namespaceName = $namespace;
