@@ -18,7 +18,6 @@ final class LoginAuthController extends CustomController
 
     public function __invoke(Request $request): JsonResponse
     {
-        // dd($request->toArray());
-        return $this->jsonResponse($this->ok(), false, $this->loginAuthUseCase->__invoke($request->toArray())->handler());
+        return $this->jsonResponse($this->ok(), false, $this->loginAuthUseCase->__invoke($request->toArray())->entity());
     }
 }
