@@ -2,9 +2,11 @@
 
 namespace Src\Management\Login\Infrastructure\Repositories\FirebaseJwt;
 
+use Exception;
 use Src\Management\Login\Domain\Contracts\LoginAuthenticationContract;
 use Src\Management\Login\Domain\ValueObjects\LoginAuthenticationParameters;
 use Firebase\JWT\JWT;
+use Src\Management\Login\Domain\ValueObjects\LoginJwt;
 
 final class LoginAuthentication implements LoginAuthenticationContract
 {
@@ -26,7 +28,19 @@ final class LoginAuthentication implements LoginAuthenticationContract
         );
     }
 
-    public function token(){
-        //
+    public function check(LoginJwt $loginJwt): bool
+    {
+        try {
+            $decode = $this->jwt::decode($loginJwt->value(), $loginJwt->jwtKey(), $loginJwt->jwtEncrypt());
+            
+            if(time() > $decode[0]->exp){
+                return false;
+            }
+
+            return true;
+
+        } catch (\Throwable $th) {
+            return false;
+        }
     }
 }

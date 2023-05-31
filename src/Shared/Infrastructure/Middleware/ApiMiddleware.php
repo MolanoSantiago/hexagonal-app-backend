@@ -13,11 +13,11 @@ final class ApiMiddleware
 
     public function handle(Request $request, Closure $next): mixed
     {
-        if (empty($request->header('authorization'))) {
+        if (empty($request->header('Authorization'))) {
             throw new ApiAuthException('Not auth authorization is empty', $this->badRequest());
         }
 
-        if (env('API_KEY') !==  $request->header('authorization')) {
+        if (env('API_KEY') !==  $request->header('Authorization')) {
             throw new ApiAuthException('Not auth authorization is failed', $this->unauthorized());
         }
 
