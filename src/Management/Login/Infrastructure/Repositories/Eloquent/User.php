@@ -3,6 +3,8 @@
 namespace Src\Management\Login\Infrastructure\Repositories\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Src\Application\Role\Infrastructure\Repositories\Eloquent\Role;
 
 class User extends Model
 {
@@ -42,4 +44,12 @@ class User extends Model
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * @return BelongsToMany
+     */
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(Role::class, 'users_roles', 'user_id', 'role_id');
+    }
 }

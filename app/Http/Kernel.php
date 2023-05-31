@@ -3,7 +3,6 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use Src\Shared\Infrastructure\Middleware\ApiMiddleware;
 
 class Kernel extends HttpKernel
 {
@@ -67,5 +66,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'api' => \Src\Shared\Infrastructure\Middleware\ApiMiddleware::class,
         'jwt' => \Src\Shared\Infrastructure\Middleware\AuthMiddleware::class,
+        'role' => \Src\Shared\Infrastructure\Middleware\RoleMiddleware::class,
     ];
 }
