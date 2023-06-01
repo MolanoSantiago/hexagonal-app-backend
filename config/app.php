@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
-use Src\Management\Login\Infrastructure\Services\RouteServiceProvider;
 
 return [
 
@@ -170,8 +169,18 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         // Hexagonal Zone 
+
+        /**
+         * Login
+         */
         Src\Management\Login\Infrastructure\Services\RouteServiceProvider::class,
-        Src\Management\Login\Infrastructure\Services\DependencyServiceProvider::class
+        Src\Management\Login\Infrastructure\Services\DependencyServiceProvider::class,
+
+        /**
+         * Forgot
+         */
+        Src\Management\Forgot\Infrastructure\Services\RouteServiceProvider::class,
+        Src\Management\Forgot\Infrastructure\Services\DependencyServiceProvider::class
     ])->toArray(),
 
     /*
