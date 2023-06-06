@@ -180,7 +180,12 @@ return [
          * Forgot
          */
         Src\Management\Forgot\Infrastructure\Services\RouteServiceProvider::class,
-        Src\Management\Forgot\Infrastructure\Services\DependencyServiceProvider::class
+        Src\Management\Forgot\Infrastructure\Services\DependencyServiceProvider::class,
+        /**
+         * CRUD Users
+         */
+        Src\Application\User\Infrastructure\Services\RouteServiceProvider::class,
+        Src\Application\User\Infrastructure\Services\DependencyServiceProvider::class
     ])->toArray(),
 
     /*
