@@ -4,7 +4,7 @@ namespace Src\Application\User\Domain\ValueObjects;
 
 use Src\Shared\Domain\ValueObjects\MixedValueObject;
 
-final class UserStore extends MixedValueObject
+final class UserUpdate extends MixedValueObject
 {
     private array $handler;
 

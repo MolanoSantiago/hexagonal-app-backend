@@ -6,6 +6,7 @@ use Src\Application\User\Domain\Contracts\UserRepositoryContract;
 use Src\Application\User\Domain\User;
 use Src\Application\User\Domain\ValueObjects\UserId;
 use Src\Application\User\Domain\ValueObjects\UserStore;
+use Src\Application\User\Domain\ValueObjects\UserUpdate;
 use Src\Application\User\Infrastructure\Repositories\Eloquent\User as Model;
 
 final class UserRepository implements UserRepositoryContract
@@ -43,5 +44,35 @@ final class UserRepository implements UserRepositoryContract
         }
 
         return new User($save->toArray());
+    }
+
+    public function update(UserUpdate $update, UserId $id): User
+    {
+        $record = $this->model->find($id->value());
+
+        if(!$record) {
+            return new User(null, 'USER_NOT_FOUND');
+        }
+
+        $record->update($update->handler());
+
+        if(!$record) {
+            return new User(null, 'FAILED_UPDATE');
+        }
+
+        return new User($record->toArray());
+    }
+
+    public function delete(UserId $id): User
+    {
+        $record = $this->model->find($id->value());
+        
+        if(!$record) {
+            return new User(null, 'USER_NOT_FOUND');
+        }
+        
+        $record->delete();
+
+        return new User("User deleted successfully");
     }
 }

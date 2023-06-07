@@ -14,6 +14,11 @@ trait HttpCodesDomainHelper
         return 201;
     }
 
+    public function updated(): int
+    {
+        return 202;
+    }
+
     public function badRequest(): int
     {
         return 400;
