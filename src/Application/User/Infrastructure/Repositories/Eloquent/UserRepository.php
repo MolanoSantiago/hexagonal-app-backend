@@ -5,6 +5,7 @@ namespace Src\Application\User\Infrastructure\Repositories\Eloquent;
 use Src\Application\User\Domain\Contracts\UserRepositoryContract;
 use Src\Application\User\Domain\User;
 use Src\Application\User\Domain\ValueObjects\UserId;
+use Src\Application\User\Domain\ValueObjects\UserStore;
 use Src\Application\User\Infrastructure\Repositories\Eloquent\User as Model;
 
 final class UserRepository implements UserRepositoryContract
@@ -31,5 +32,16 @@ final class UserRepository implements UserRepositoryContract
         }
 
         return new User($user->toArray());
+    }
+
+    public function store(UserStore $store): User
+    {
+        $save = $this->model->create($store->handler());
+
+        if(!$save) {
+            return new User(null, 'FAILED_STORE');
+        }
+
+        return new User($save->toArray());
     }
 }

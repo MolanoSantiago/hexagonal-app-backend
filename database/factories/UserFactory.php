@@ -21,7 +21,7 @@ class UserFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'cellphone' => '1231234578',
+            'cellphone' => random_int(3240000000, 3249999999),
             'email_verified_at' => now(),
             'password' => password_hash('default', PASSWORD_DEFAULT), // password
             'state_id' => rand(1, 4),

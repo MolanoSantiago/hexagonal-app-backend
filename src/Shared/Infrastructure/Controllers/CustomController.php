@@ -19,6 +19,6 @@ class CustomController extends Controller
             "status" => $status,
             "error" => $error,
             "message" => $response,
-        ]);
+        ], $status);
     }
 }

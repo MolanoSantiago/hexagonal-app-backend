@@ -9,6 +9,11 @@ trait HttpCodesDomainHelper
         return 200;
     }
 
+    public function created(): int
+    {
+        return 201;
+    }
+
     public function badRequest(): int
     {
         return 400;

@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email', 125)->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('cellphone', 12)->nullable();
+            $table->string('cellphone', 12)->nullable()->unique();
             $table->string('password', 125);
-            $table->unsignedBigInteger('state_id');
+            $table->unsignedBigInteger('state_id')->default(3);
             $table->rememberToken();
             $table->timestamps();
             $table->foreign('state_id')->references('id')->on('states');
