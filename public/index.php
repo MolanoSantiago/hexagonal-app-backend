@@ -15,12 +15,12 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 
 // Agrega estas líneas para configurar el host y el puerto
 $host = '0.0.0.0';
-$port = $_SERVER['PORT'] ?? 8000;
+$port = $_SERVER['PORT'] ?? 80;
 
 // Reemplaza la siguiente línea:
-$response = $kernel->handle(
-    $request = Request::capture()
-)->send();
+// $response = $kernel->handle(
+//     $request = Request::capture()
+// )->send();
 
 // Con estas líneas:
 $request = Request::capture();
