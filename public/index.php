@@ -14,8 +14,8 @@ require __DIR__.'/../vendor/autoload.php';
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
 // Agrega estas líneas para configurar el host y el puerto
-$host = '0.0.0.0';
-$port = $_SERVER['PORT'] ?? 80;
+$host = '0.0.0.0' ?? env('HOST');
+$port = $_SERVER['PORT'] ?? env('PORT');
 
 // Reemplaza la siguiente línea:
 // $response = $kernel->handle(
