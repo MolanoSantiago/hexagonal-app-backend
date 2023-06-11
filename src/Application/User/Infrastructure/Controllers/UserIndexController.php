@@ -6,6 +6,7 @@ use Illuminate\Http\JsonResponse;
 use Src\Application\User\Application\Get\UserIndexUseCase;
 use Src\Shared\Infrastructure\Controllers\CustomController;
 use Src\Shared\Infrastructure\Helper\HttpCodesHelper;
+use Src\Shared\Infrastructure\Middleware\RoleMiddleware;
 
 final class UserIndexController extends CustomController
 {
@@ -15,7 +16,9 @@ final class UserIndexController extends CustomController
         private readonly UserIndexUseCase $useCaseIndex
     )
     {
-        
+        $this->middleware(RoleMiddleware::class, [
+            'role' => 'master'
+        ]);
     }
 
     public function __invoke(): JsonResponse
