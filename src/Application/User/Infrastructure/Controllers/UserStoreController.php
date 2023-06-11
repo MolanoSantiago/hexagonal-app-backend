@@ -3,7 +3,6 @@
 namespace Src\Application\User\Infrastructure\Controllers;
 
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Src\Application\User\Application\Store\UserStoreUseCase;
 use Src\Application\User\Infrastructure\Request\UserStoreRequest;
 use Src\Shared\Infrastructure\Controllers\CustomController;
@@ -19,7 +18,7 @@ final class UserStoreController extends CustomController
     )
     {
         $this->middleware(RoleMiddleware::class, [
-            'role' => 'master'
+            'role' => '*'
         ]);
     }
 

@@ -7,6 +7,7 @@ use Src\Application\User\Application\Update\UserUpdateUseCase;
 use Src\Application\User\Infrastructure\Request\UserUpdateRequest;
 use Src\Shared\Infrastructure\Controllers\CustomController;
 use Src\Shared\Infrastructure\Helper\HttpCodesHelper;
+use Src\Shared\Infrastructure\Middleware\RoleMiddleware;
 
 final class UserUpdateController extends CustomController
 {
@@ -16,6 +17,9 @@ final class UserUpdateController extends CustomController
         private readonly UserUpdateUseCase $useCaseUpdate
     )
     {
+        $this->middleware(RoleMiddleware::class, [
+            'role' => '*'
+        ]);
     }
 
     public function __invoke(UserUpdateRequest $request, int $id): JsonResponse

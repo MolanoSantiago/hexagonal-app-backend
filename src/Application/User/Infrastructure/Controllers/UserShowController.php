@@ -6,6 +6,7 @@ use Illuminate\Http\JsonResponse;
 use Src\Application\User\Application\Get\UserShowUseCase;
 use Src\Shared\Infrastructure\Controllers\CustomController;
 use Src\Shared\Infrastructure\Helper\HttpCodesHelper;
+use Src\Shared\Infrastructure\Middleware\RoleMiddleware;
 
 final class UserShowController extends CustomController
 {
@@ -15,7 +16,9 @@ final class UserShowController extends CustomController
         private readonly UserShowUseCase $useCaseShow
     )
     {
-        
+        $this->middleware(RoleMiddleware::class, [
+            'role' => '*'
+        ]);
     }
 
     public function __invoke(int $id): JsonResponse
