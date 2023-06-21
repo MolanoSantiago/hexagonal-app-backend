@@ -23,8 +23,8 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'cellphone' => random_int(3240000000, 3249999999),
             'email_verified_at' => now(),
-            'password' => password_hash('default', PASSWORD_DEFAULT), // password
-            'state_id' => rand(1, 4),
+            'password' => password_hash('default123', PASSWORD_DEFAULT), // password
+            'state_id' => 3,
             'remember_token' => Str::random(10),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),

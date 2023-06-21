@@ -17,11 +17,14 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\User::factory()->create([
-            'name' => 'Santiago Molano',
-            'email' => 's.molano0818@gmail.com',
+            'name' => 'Master',
+            'email' => 'master@gmail.com',
         ]);
 
-        \App\Models\User::factory(9)->create();
+        \App\Models\User::factory()->create([
+            'name' => 'Common',
+            'email' => 'common@gmail.com',
+        ]);
 
         $this->call(UserRoleSeeder::class);
 

@@ -46,6 +46,7 @@ final class LoginAuthentication implements LoginAuthenticationContract
 
     public function get(LoginJwt $loginJwt): mixed
     {
+        // dd($loginJwt->value(), $loginJwt->jwtKey(), $loginJwt->jwtEncrypt());
         return $this->jwt::decode($loginJwt->value(), $loginJwt->jwtKey(), $loginJwt->jwtEncrypt())[0]->data;
     }
 }
